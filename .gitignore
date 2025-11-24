@@ -1,1 +1,11 @@
-
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+[Ll]ibrary/
+[Ll]ogs/
+[Tt]emp/
+[Oo]bj/
+Packages/*
+!Packages/manifest.json
+UserSettings/
+.DS_Store
+Thumbs.db
