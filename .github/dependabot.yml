@@ -4,3 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 0   # evita que Dependabot abra PRs automáticos
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependabot"
+    reviewers:
+      - "Jesusdio2"
