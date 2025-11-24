@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "weekly"   # ejecución una vez por semana
     open-pull-requests-limit: 0   # evita que Dependabot abra PRs automáticos
     commit-message:
       prefix: "deps"
