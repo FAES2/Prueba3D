@@ -1,0 +1,11 @@
+name: Run Dependabot
+
+on:
+  workflow_dispatch:   # permite ejecutarlo manualmente desde la pestaña Actions
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Dependabot
+        uses: dependabot/fetch-metadata@v1
