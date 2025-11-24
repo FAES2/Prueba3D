@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ModoController : MonoBehaviour // Not Used For Now.
+public class ModoController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

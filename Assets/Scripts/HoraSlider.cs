@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HoraSlider : MonoBehaviour // Only Debug
+public class HoraSlider : MonoBehaviour
 {
-    // References
+    // Referencias
     public SkyColorByTime skyController;
     public Slider horaSlider;
     public TMP_Text horaTexto;

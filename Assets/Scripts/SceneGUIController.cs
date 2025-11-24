@@ -43,7 +43,7 @@ public class SceneGUIController : MonoBehaviour
         {
             if (vidaController != null && vidaController.vida <= 0f)
                 return;
-                
+
             menuIsActive = !menuIsActive;
             pauseMenu.SetActive(menuIsActive);
             Hotbar.SetActive(!menuIsActive);
@@ -53,7 +53,7 @@ public class SceneGUIController : MonoBehaviour
 
             Time.timeScale = menuIsActive ? 0 : 1;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (vidaController != null && vidaController.vida <= 0f)
@@ -86,6 +86,18 @@ public class SceneGUIController : MonoBehaviour
         if (botonFPSLabel != null)
         {
             botonFPSLabel.text = nuevoEstado ? "Ocultar FPS" : "Mostrar FPS";
+        }
+    }
+
+    public void CambiarModoPantalla(bool pantallaCompleta)
+    {
+        if (pantallaCompleta)
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
         }
     }
 }

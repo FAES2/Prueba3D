@@ -252,6 +252,17 @@ public class MainMenuController : MonoBehaviour
         MenuCarga.SetActive(false);
         CirculoCarga.SetActive(false);
     }
+    public void CambiarModoPantalla(bool pantallaCompleta)
+    {
+        if (pantallaCompleta)
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
+    }
 
     IEnumerator GenerarTerrenoDeCarga()
     {

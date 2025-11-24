@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventarioUI : MonoBehaviour // Not Used For Now.
+public class InventarioUI : MonoBehaviour
 {
     public GameObject prefabSlot; // Prefab con Image + Text
     public Transform contenedorSlots; // Donde se instancian los slots
-    public BlockType[] bloquesDisponibles; // Referencia a los bloques
+    public ItemType[] itemsDisponibles; // Lista de ítems registrados
     public Inventario inventario; // Referencia lógica
 
     void Start()
@@ -16,14 +16,14 @@ public class InventarioUI : MonoBehaviour // Not Used For Now.
 
     public void GenerarUI()
     {
-        for (int i = 0; i < bloquesDisponibles.Length; i++)
+        foreach (var item in itemsDisponibles)
         {
             GameObject slot = Instantiate(prefabSlot, contenedorSlots);
             Image icono = slot.transform.Find("Icono").GetComponent<Image>();
             TextMeshProUGUI texto = slot.transform.Find("Cantidad").GetComponent<TextMeshProUGUI>();
 
-            icono.sprite = bloquesDisponibles[i].iconoInventario;
-            texto.text = inventario.ObtenerCantidad(i + 1).ToString();
+            icono.sprite = item.iconoInventario;
+            texto.text = inventario.ObtenerCantidad(item.id).ToString();
         }
     }
 
@@ -33,7 +33,9 @@ public class InventarioUI : MonoBehaviour // Not Used For Now.
         {
             Transform slot = contenedorSlots.GetChild(i);
             TextMeshProUGUI texto = slot.Find("Cantidad").GetComponent<TextMeshProUGUI>();
-            texto.text = inventario.ObtenerCantidad(i + 1).ToString();
+
+            string id = itemsDisponibles[i].id;
+            texto.text = inventario.ObtenerCantidad(id).ToString();
         }
     }
 }

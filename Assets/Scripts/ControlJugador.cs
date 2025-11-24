@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Unity.Collections;
-using Unity.Netcode; // Netcode definitions are still not in use, multiplayer is still under development.
+using Unity.Netcode;
 using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
-public class ControlJugador : NetworkBehaviour // In English:PlayerControl // 
+public class ControlJugador : NetworkBehaviour
 {
     [Header("Configuración")]
     public float velocidad = 5f;

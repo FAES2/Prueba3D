@@ -1,38 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Inventario // In English: Inventory. // Not Used For Now.
+public class Inventario
 {
-    [Tooltip("Cantidad por tipo de bloque (indexado desde 1)")]
-    public int[] cantidades;
+    [Tooltip("Cantidad por ID de ítem o bloque")]
+    public Dictionary<string, int> cantidades = new();
 
-    // Constructor: inicializa el inventario con N tipos de bloque
-    public Inventario(int totalTipos)
+    // Agrega cantidad al ID especificado
+    public void Agregar(string id, int cantidad = 1)
     {
-        cantidades = new int[totalTipos];
+        if (string.IsNullOrEmpty(id)) return;
+        if (!cantidades.ContainsKey(id)) cantidades[id] = 0;
+        cantidades[id] += cantidad;
     }
 
-    // Agrega cantidad al tipo de bloque especificado
-    public void Agregar(int tipo, int cantidad = 1)
+    // Intenta consumir cantidad del ID especificado
+    public bool Consumir(string id, int cantidad = 1)
     {
-        if (tipo <= 0 || tipo > cantidades.Length) return;
-        cantidades[tipo - 1] += cantidad;
-    }
+        if (!cantidades.ContainsKey(id)) return false;
+        if (cantidades[id] < cantidad) return false;
 
-    // Intenta consumir cantidad del tipo de bloque especificado
-    public bool Consumir(int tipo, int cantidad = 1)
-    {
-        if (tipo <= 0 || tipo > cantidades.Length) return false;
-        if (cantidades[tipo - 1] < cantidad) return false;
-
-        cantidades[tipo - 1] -= cantidad;
+        cantidades[id] -= cantidad;
         return true;
     }
 
-    // Devuelve la cantidad actual del tipo de bloque especificado
-    public int ObtenerCantidad(int tipo)
+    // Devuelve la cantidad actual del ID especificado
+    public int ObtenerCantidad(string id)
     {
-        if (tipo <= 0 || tipo > cantidades.Length) return 0;
-        return cantidades[tipo - 1];
+        if (!cantidades.ContainsKey(id)) return 0;
+        return cantidades[id];
     }
+
+    // Devuelve todos los IDs presentes
+    public IEnumerable<string> ObtenerTodosIDs() => cantidades.Keys;
 }

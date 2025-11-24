@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HotbarSelector : MonoBehaviour {
     public RectTransform selector;
-    public Vector3[] slotPositions;
+    public Vector3[] slotPositions; // Asigna manualmente en el Inspector
 
     void Update() {
         for (int i = 0; i < slotPositions.Length; i++) {

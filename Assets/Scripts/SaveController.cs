@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SaveController : MonoBehaviour // Not used for now.
+public class SaveController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

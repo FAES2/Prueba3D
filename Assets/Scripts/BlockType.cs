@@ -18,4 +18,6 @@ public class BlockType : ScriptableObject
     public AudioClip[] sonidosModificar; // Reproduce El Mismo Sonido Al Colocar Y Romper
     [Tooltip("Icono")]
     public Sprite iconoInventario;
+    [Tooltip("Nombre")]
+    public string Nombre;
 }
